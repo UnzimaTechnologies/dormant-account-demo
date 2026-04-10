@@ -70,7 +70,7 @@ This Agreement constitutes the entire understanding between you and Unzima Techn
 
 ---
 
-**Unzima Technologies**  
+**Unzima Technologies** a Unzima Investments Limited subsidiary  
 Lusaka, Zambia  
 Email:  
 Website: 
