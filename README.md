@@ -14,7 +14,7 @@ This demo demonstrates how Unzima Technologies solves this pain point with:
 - Automated SMS notifications
 - A user-friendly USSD menu (*456#)
 - Mobile Money deposit integration (MTN MoMo & Airtel Money)
-- Self-service account management (reactivation, closure, and deactivation)
+- Self-service account management (reactivation and deactivation)
 
 **Goal**: Faster account reactivation, significant reduction in operational costs, and improved customer convenience.
 
@@ -35,26 +35,26 @@ This demo demonstrates how Unzima Technologies solves this pain point with:
 - Send individual SMS to specific accounts
 
 ### Customer Experience Simulator
-- Realistic SMS notification preview
+- Realistic SMS notification preview with exact wording
 - Full interactive **USSD menu (*456#)** with the following options:
 
   1. **Check Account Status**  
-     → Opens a detailed second screen showing:
-     - Account Number
-     - Current Status (**Inactive** or **Dormant**)
-     - Last Transaction Date
+     → Opens a second layer showing:
+     - 1. Inactive
+     - 2. Dormant
 
-  2. **Reactivate My Account** (Recommended)
+  2. **Reactivate Account** (Recommended)
 
-  3. **Deposit via Mobile Money** (MTN MoMo / Airtel Money)
+  3. **Deposit via Mobile Money**  
+     → Shows sub-options:
+     - MTN Mobile Money
+     - Airtel Mobile Money
 
-  4. **Close Account**
+  4. **Deactivate Account**
 
-  5. **Deactivate Account** *(New – immediately locks the account)*
-
-- Simulated Mobile Money deposit flow with confirmation messages
+- Simulated Mobile Money deposit flow with provider selection
 - Clean, professional Stanbic Bank branding
-- Fully responsive (works great on mobile devices)
+- Fully responsive design (works great on mobile)
 
 ---
 
@@ -107,13 +107,13 @@ This demo is protected under the **Unzima Technologies End User License Agreemen
 
 ## 👥 About Unzima Technologies
 
-Unzima Technologies is a Zambian technology company specializing in innovative fintech and digital solutions for banks and financial institutions.
+Unzima Technologies is a Zambian technology company specializing in innovative fintech and digital solutions for banks, financial and educational institutions.
 
 We build practical, scalable systems that solve real business challenges in the Zambian market — including USSD platforms, mobile money integrations, and automated banking workflows.
 
 **Contact:**
-- Email:
-- Phone:
+- Email: 
+- Phone: 
 - Location: Lusaka, Zambia
 
 ---
