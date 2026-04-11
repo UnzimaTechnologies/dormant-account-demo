@@ -3,62 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dormant Account Reactivation Demo - Stanbic Bank</title>
+  <title>Stanbic Bank Zambia - Dormant Account Reactivation Demo</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>body {font-family: system-ui, sans-serif;}</style>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .ussd-option {
+      transition: all 0.2s ease;
+    }
+    .ussd-option:hover {
+      transform: translateX(8px);
+    }
+  </style>
 </head>
-<body class="bg-zinc-949 text-white">
+<body class="bg-zinc-950 text-white min-h-screen">
 
   <!-- Header -->
-  <header class="bg-blue-900 border-b border-blue-800 py-4">
+  <header class="bg-blue-900 border-b border-orange-400 py-5">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-shield-halved text-3xl text-orange-400"></i>
-        <h1 class="text-2xl font-bold">Stanbic Bank Zambia</h1>
+      <div class="flex items-center gap-4">
+        <i class="fa-solid fa-shield-halved text-4xl text-orange-400"></i>
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">Stanbic Bank</h1>
+          <p class="text-orange-400 text-sm font-medium -mt-1">Zambia</p>
+        </div>
       </div>
-      <p class="text-orange-400 font-semibold">Dormant Account Reactivation Demo</p>
+      <div class="text-right">
+        <p class="text-orange-400 font-semibold text-lg">Dormant Account Reactivation Demo</p>
+        <p class="text-xs text-zinc-400">Interactive Proof of Concept - Unzima Technologies</p>
+      </div>
     </div>
   </header>
 
-  <div class="max-w-7xl mx-auto px-6 py-8 grid md:grid-cols-2 gap-8">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10">
 
     <!-- BANK ADMIN PANEL -->
-    <div class="bg-white text-black rounded-3xl shadow-2xl p-8">
-      <h2 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="fa-solid fa-chart-bar"></i> Bank Admin Dashboard</h2>
-      <p class="text-sm text-zinc-500 mb-4">15 Inactive/Dormant Accounts Detected</p>
+    <div class="bg-white text-zinc-900 rounded-3xl shadow-2xl p-8">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <i class="fa-solid fa-chart-bar text-blue-600"></i>
+          Bank Admin Dashboard
+        </h2>
+        <span class="bg-red-100 text-red-700 text-xs font-semibold px-3 py-1 rounded-full">15 Accounts Detected</span>
+      </div>
       
-      <div id="accountList" class="space-y-3 max-h-96 overflow-auto"></div>
+      <p class="text-zinc-500 mb-6 text-sm">Dormant & Inactive Accounts</p>
       
+      <div id="accountList" class="space-y-4 max-h-[460px] overflow-auto pr-2"></div>
+
       <button onclick="sendBulkSMS()" 
-              class="mt-8 w-full bg-blue-900 text-white py-4 rounded-2xl font-semibold flex items-center justify-center gap-2">
-        <i class="fa-solid fa-paper-plane"></i> SEND SMS TO ALL INACTIVE ACCOUNTS
+              class="mt-10 w-full bg-blue-700 hover:bg-blue-800 transition-colors text-white py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 shadow-lg">
+        <i class="fa-solid fa-paper-plane"></i> 
+        SEND SMS NOTIFICATIONS TO ALL ACCOUNTS
       </button>
     </div>
 
     <!-- CUSTOMER SIMULATION -->
-    <div class="bg-white text-black rounded-3xl shadow-2xl p-8">
-      <h2 class="text-xl font-bold mb-6">Customer Experience Simulator</h2>
+    <div class="bg-white text-zinc-900 rounded-3xl shadow-2xl p-8">
+      <h2 class="text-2xl font-bold mb-6">Customer Experience Simulator</h2>
       
-      <div class="border border-dashed border-zinc-300 rounded-2xl p-6 mb-6">
-        <p class="font-medium mb-3">You received an SMS:</p>
-        <div class="bg-green-50 border border-green-200 rounded-2xl p-4 text-sm">
-          Dear Customer, your Stanbic Bank account ending ****4821 has become dormant.<br>
-          To reactivate, deposit K50+ or dial <strong>*456#</strong> now.
+      <!-- SMS Simulation -->
+      <div class="mb-8">
+        <p class="font-medium mb-3 text-zinc-600">SMS Received by Customer:</p>
+        <div class="bg-green-50 border border-green-200 rounded-3xl p-6 text-sm leading-relaxed">
+          Dear Customer,<br><br>
+          Your Stanbic Bank account ending <strong>****4821</strong> has become <strong>dormant</strong> due to inactivity.<br><br>
+          To reactivate your account, please deposit K50 or more, or dial <strong>*456#</strong> now.<br><br>
+          Thank you for banking with Stanbic.
         </div>
       </div>
 
       <button onclick="startUSSD()" 
-              class="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-2xl font-bold text-lg mb-6">
+              class="w-full bg-orange-500 hover:bg-orange-600 transition-all text-white py-5 rounded-3xl font-bold text-xl shadow-lg flex items-center justify-center gap-3">
+        <i class="fa-solid fa-mobile-screen-button"></i>
         Simulate Dialling *456#
       </button>
 
-      <div id="ussdScreen" class="hidden bg-zinc-900 text-white rounded-3xl p-6">
-        <p class="text-center mb-4 font-mono">*456#</p>
-        <div id="ussdMenu" class="space-y-2"></div>
+      <!-- USSD Screen -->
+      <div id="ussdScreen" class="hidden mt-8 bg-zinc-900 text-white rounded-3xl p-8">
+        <div class="text-center mb-8">
+          <p class="font-mono text-2xl text-orange-400 mb-1">*456#</p>
+          <p class="text-xs text-zinc-400">Stanbic Bank USSD Service • Secure</p>
+        </div>
+        
+        <div id="ussdMenu" class="space-y-3"></div>
+        
+        <button onclick="hideUSSD()" 
+                class="mt-8 w-full text-zinc-400 hover:text-white text-sm py-3">
+          ← Cancel / End Session
+        </button>
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-zinc-500 text-xs border-t border-zinc-800 mt-12">
+    <p>Interactive Demo • Unzima Technologies • For Stanbic Bank Zambia Presentation Only</p>
+    <p class="mt-1">Protected under Unzima Technologies EULA • Not for production use</p>
+  </footer>
 
   <script>
     // Mock inactive accounts
@@ -66,56 +108,126 @@
       {id: "4821", phone: "0977 123 456", status: "Dormant"},
       {id: "7392", phone: "0966 987 654", status: "Inactive"},
       {id: "1056", phone: "0971 555 222", status: "Dormant"},
-      // Add more as needed
+      {id: "6643", phone: "0962 111 333", status: "Inactive"},
+      {id: "9281", phone: "0977 444 888", status: "Dormant"}
     ];
 
     function renderAccounts() {
       const container = document.getElementById('accountList');
       container.innerHTML = accounts.map(acc => `
-        <div class="flex justify-between items-center bg-zinc-100 rounded-2xl p-4">
+        <div class="flex justify-between items-center bg-zinc-100 hover:bg-zinc-50 transition-colors rounded-2xl p-5">
           <div>
-            <p class="font-semibold">Account ****${acc.id}</p>
-            <p class="text-sm text-zinc-500">${acc.phone}</p>
+            <p class="font-semibold text-lg">Account ••••${acc.id}</p>
+            <p class="text-sm text-zinc-500">${acc.phone} • ${acc.status}</p>
           </div>
           <button onclick="sendSingleSMS('${acc.phone}')" 
-                  class="text-xs bg-blue-900 text-white px-5 py-2 rounded-2xl">Send SMS</button>
+                  class="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white text-sm rounded-2xl transition-colors">
+            Send SMS
+          </button>
         </div>
       `).join('');
     }
 
     function sendBulkSMS() {
-      alert("✅ SMS sent to all 15 inactive accounts!\n\nCustomers can now dial *456# to reactivate.");
+      alert("✅ Bulk SMS successfully sent!\n\nNotifications have been sent to all 15 dormant/inactive accounts.\n\nCustomers can now reactivate by dialling *456#.");
     }
 
     function sendSingleSMS(phone) {
-      alert(`✅ SMS sent to ${phone}`);
+      alert(`✅ SMS Notification Sent\n\nTo: ${phone}\nMessage: Your account has become dormant. Dial *456# to reactivate.`);
     }
 
     function startUSSD() {
-      document.getElementById('ussdScreen').classList.remove('hidden');
+      const screen = document.getElementById('ussdScreen');
+      screen.classList.remove('hidden');
+      
       document.getElementById('ussdMenu').innerHTML = `
-        <div class="space-y-3">
-          <div onclick="ussdOption(1)" class="bg-zinc-800 hover:bg-zinc-700 p-4 rounded-2xl cursor-pointer">1. Check Account Status</div>
-          <div onclick="ussdOption(2)" class="bg-zinc-800 hover:bg-zinc-700 p-4 rounded-2xl cursor-pointer">2. Reactivate Account</div>
-          <div onclick="ussdOption(3)" class="bg-zinc-800 hover:bg-zinc-700 p-4 rounded-2xl cursor-pointer">3. Deposit via MTN / Airtel Money</div>
-          <div onclick="ussdOption(4)" class="bg-zinc-800 hover:bg-zinc-700 p-4 rounded-2xl cursor-pointer">4. Close Account</div>
+        <div onclick="ussdOption(1)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
+          <span class="font-medium">1. Check Account Status</span>
+        </div>
+        <div onclick="ussdOption(2)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
+          <span class="font-medium">2. Reactivate My Account</span>
+          <span class="text-orange-400 text-sm">Recommended</span>
+        </div>
+        <div onclick="ussdOption(3)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
+          <span class="font-medium">3. Deposit via Mobile Money</span>
+        </div>
+        <div onclick="ussdOption(4)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
+          <span class="font-medium">4. Close Account</span>
+        </div>
+        <div onclick="ussdOption(5)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
+          <span class="font-medium">5. Deactivate Account</span>
         </div>
       `;
     }
 
     function ussdOption(choice) {
-      if (choice === 2) {
-        alert("✅ Account successfully reactivated!\n\nYour account ending ****4821 is now ACTIVE.\nConfirmation SMS sent.");
-        document.getElementById('ussdScreen').classList.add('hidden');
-      } else if (choice === 3) {
-        const amount = prompt("Enter amount to deposit (minimum K50):", "100");
-        if (amount) alert(`✅ K${amount} payment request sent to your MTN/Airtel Money.\nAccount will reactivate after payment.`);
-      } else {
-        alert("Feature simulated – works exactly like this in production.");
+      if (choice === 1) {
+        // New: Check Account Status with sub-options
+        showAccountStatusScreen();
+      } 
+      else if (choice === 2) {
+        alert("✅ SUCCESS!\n\nYour Stanbic Bank account ending ****4821 has been successfully reactivated.\n\nA confirmation SMS has been sent to your phone.");
+        hideUSSD();
+      } 
+      else if (choice === 3) {
+        const amount = prompt("Enter amount to deposit (Minimum K50):", "100");
+        if (amount && parseFloat(amount) >= 50) {
+          alert(`✅ Payment Request Sent!\n\nK${amount} has been requested via MTN MoMo / Airtel Money.\n\nYour account will be automatically reactivated once the deposit is completed.`);
+          hideUSSD();
+        }
+      } 
+      else if (choice === 4) {
+        if (confirm("Are you sure you want to close this account?\nThis action cannot be undone.")) {
+          alert("✅ Account Closure Request Received\n\nYour request to close account ****4821 has been submitted.\nA confirmation SMS will be sent after processing.");
+          hideUSSD();
+        }
+      } 
+      else if (choice === 5) {
+        // Deactivate Account
+        if (confirm("Are you sure you want to DEACTIVATE this account?\nThis will lock the account immediately.")) {
+          alert("✅ Account Deactivated Successfully\n\nAccount ****4821 has been deactivated.\nYou can reactivate it later by making a deposit or contacting the bank.");
+          hideUSSD();
+        }
       }
     }
 
-    // Initialise
+    // New Function: Second layer for Account Status
+    function showAccountStatusScreen() {
+      const menu = document.getElementById('ussdMenu');
+      menu.innerHTML = `
+        <div class="bg-zinc-800 p-6 rounded-2xl mb-6">
+          <h3 class="text-lg font-semibold mb-4 text-orange-400">Account Status Check</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center bg-zinc-700 p-4 rounded-xl">
+              <span class="font-medium">Account Number</span>
+              <span class="font-mono">••••4821</span>
+            </div>
+            <div class="flex justify-between items-center bg-zinc-700 p-4 rounded-xl">
+              <span class="font-medium">Current Status</span>
+              <span class="text-red-400 font-semibold">DORMANT</span>
+            </div>
+            <div class="flex justify-between items-center bg-zinc-700 p-4 rounded-xl">
+              <span class="font-medium">Last Transaction</span>
+              <span class="text-zinc-400">4 months ago</span>
+            </div>
+          </div>
+        </div>
+
+        <div onclick="backToMainMenu()" class="ussd-option bg-zinc-700 hover:bg-zinc-600 p-5 rounded-2xl cursor-pointer text-center font-medium">
+          ← Back to Main Menu
+        </div>
+      `;
+    }
+
+    function backToMainMenu() {
+      startUSSD(); // Restart main USSD menu
+    }
+
+    function hideUSSD() {
+      document.getElementById('ussdScreen').classList.add('hidden');
+    }
+
+    // Initialize the demo
     window.onload = renderAccounts;
   </script>
 </body>
