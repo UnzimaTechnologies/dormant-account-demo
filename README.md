@@ -2,21 +2,21 @@
 
 An interactive proof-of-concept demo for **Stanbic Bank Zambia** built by **Unzima Technologies**.
 
-This demo showcases a modern, automated solution to help banks significantly reduce manual calls to customers with dormant or inactive accounts by using **SMS notifications** and a simple **USSD self-service menu**.
+This demo showcases a modern automated solution that helps banks drastically reduce manual phone calls to customers with dormant or inactive accounts through **SMS notifications** and a comprehensive **USSD self-service menu**.
 
 ---
 
 ## 🎯 Project Overview
 
-Many banks in Zambia spend considerable time and resources manually contacting hundreds or thousands of customers whose accounts have become dormant due to inactivity.
+Banks in Zambia currently face the challenge of manually contacting hundreds or thousands of customers monthly whose accounts have become dormant due to inactivity.
 
-This demo demonstrates how Unzima Technologies can solve this problem with:
+This demo demonstrates how Unzima Technologies solves this pain point with:
 - Automated SMS notifications
 - A user-friendly USSD menu (*456#)
 - Mobile Money deposit integration (MTN MoMo & Airtel Money)
-- Optional web portal for smartphone users
+- Self-service account management (reactivation, closure, and deactivation)
 
-**Goal**: Reactivate dormant accounts faster, reduce operational costs, and improve customer experience.
+**Goal**: Faster account reactivation, significant reduction in operational costs, and improved customer convenience.
 
 ---
 
@@ -25,29 +25,36 @@ This demo demonstrates how Unzima Technologies can solve this problem with:
 **Try the interactive demo here:**  
 [https://unzimatechnologies.github.io/dormant-account-demo/](https://unzimatechnologies.github.io/dormant-account-demo/)
 
-
 ---
 
 ## 📱 Demo Features
 
 ### Bank Admin Dashboard
-- View list of detected dormant/inactive accounts
+- View list of detected dormant and inactive accounts
 - Send bulk SMS notifications to all inactive customers
 - Send individual SMS to specific accounts
 
 ### Customer Experience Simulator
-- Realistic SMS notification simulation
-- Interactive USSD menu (*456#) with the following options:
-  1. Check Account Status
-  2. Reactivate Account (Recommended)
-  3. Deposit via Mobile Money (MTN / Airtel)
-  4. Close Account
+- Realistic SMS notification preview
+- Full interactive **USSD menu (*456#)** with the following options:
 
-### Key Highlights
-- Works for both feature phones (USSD) and smartphones
-- Simulated Mobile Money deposit flow
+  1. **Check Account Status**  
+     → Opens a detailed second screen showing:
+     - Account Number
+     - Current Status (**Inactive** or **Dormant**)
+     - Last Transaction Date
+
+  2. **Reactivate My Account** (Recommended)
+
+  3. **Deposit via Mobile Money** (MTN MoMo / Airtel Money)
+
+  4. **Close Account**
+
+  5. **Deactivate Account** *(New – immediately locks the account)*
+
+- Simulated Mobile Money deposit flow with confirmation messages
 - Clean, professional Stanbic Bank branding
-- Fully responsive design (mobile-friendly)
+- Fully responsive (works great on mobile devices)
 
 ---
 
@@ -56,14 +63,16 @@ This demo demonstrates how Unzima Technologies can solve this problem with:
 - HTML5 + Tailwind CSS (via CDN)
 - Vanilla JavaScript
 - Font Awesome Icons
-- Fully client-side (no backend required for demo)
+- Fully client-side (no backend required for this demo)
 
-**Note**: This is a **frontend-only demonstration**. The production version will include:
+**Note**: This is a **frontend-only demonstration**.  
+The production version will include:
 - Real SMS gateway integration
-- USSD short code setup
+- Dedicated USSD short code
 - MTN MoMo & Airtel Money API integration
 - Secure backend (Next.js / Node.js)
 - Core banking system integration
+- Full security and compliance features
 
 ---
 
@@ -80,19 +89,19 @@ This demo is protected under the **Unzima Technologies End User License Agreemen
 ## 🚀 How to Run Locally
 
 1. Clone or download this repository
-2. Open the `index.html` file in any modern web browser (Chrome, Edge, Firefox)
+2. Open the `index.html` file in any modern web browser (Chrome, Edge, or Firefox recommended)
 3. No installation or server required
 
 ---
 
-## 📋 Roadmap (Production Version)
+## 📋 Production Roadmap
 
-| Phase | Features | Timeline |
-|-------|----------|----------|
-| Demo | Interactive prototype (Current) | Completed |
-| MVP | Real SMS + USSD + Mobile Money | 4–6 weeks |
-| Integration | Core banking system connection | 2–3 weeks |
-| Go-Live | Full deployment + training | 1–2 weeks |
+| Phase              | Features                                           | Estimated Timeline |
+|--------------------|----------------------------------------------------|--------------------|
+| Demo (Current)     | Interactive prototype with enhanced USSD flow      | Completed          |
+| MVP                | Real SMS + USSD + Mobile Money integration         | 4–6 weeks          |
+| Integration        | Core banking system + security & compliance        | 2–3 weeks          |
+| Go-Live            | Full deployment, training & monitoring             | 1–2 weeks          |
 
 ---
 
@@ -100,11 +109,11 @@ This demo is protected under the **Unzima Technologies End User License Agreemen
 
 Unzima Technologies is a Zambian technology company specializing in innovative fintech and digital solutions for banks and financial institutions.
 
-We build practical, scalable systems that solve real business challenges in the Zambian market.
+We build practical, scalable systems that solve real business challenges in the Zambian market — including USSD platforms, mobile money integrations, and automated banking workflows.
 
 **Contact:**
-- Email: 
-- Phone: 
+- Email:
+- Phone:
 - Location: Lusaka, Zambia
 
 ---
@@ -112,9 +121,9 @@ We build practical, scalable systems that solve real business challenges in the 
 ## ⚠️ Important Notice
 
 This is a **demonstration only**.  
-All data, SMS messages, USSD flows, and transactions shown are **simulated**.
+All data, SMS messages, USSD flows, account statuses, and transactions shown are **simulated** for presentation purposes.
 
-For a customized live demo, proposal, or full implementation, please contact Unzima Technologies.
+For a customized live demo, detailed proposal, or full production implementation, please contact Unzima Technologies.
 
 ---
 
