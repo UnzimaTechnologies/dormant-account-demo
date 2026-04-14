@@ -149,34 +149,24 @@
         <div onclick="ussdOption(3)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
           <span class="font-medium">3. Deposit via Mobile Money</span>
         </div>
-        <div onclick="ussdOption(4)" class="ussd-option bg-zinc-800 hover:bg-zinc-700 p-5 rounded-2xl cursor-pointer flex justify-between items-center">
-          <span class="font-medium">4. Deactivate Account</span>
-        </div>
       `;
     }
 
     function ussdOption(choice) {
       if (choice === 1) {
         showAccountStatusScreen();
-      } 
+      }
       else if (choice === 2) {
         simulateReactivationOTP();
-      } 
+      }
       else if (choice === 3) {
         showMobileMoneyOptions();
-      } 
-      else if (choice === 4) {
-        if (confirm("Are you sure you want to DEACTIVATE this account?\nThis action will lock the account immediately.")) {
-          alert("✅ Account Deactivated Successfully\n\nAccount ****4821 has been deactivated.\nYou can reactivate it later by making a deposit.");
-          hideUSSD();
-        }
       }
     }
 
     // ==================== REACTIVATION FLOW WITH OTP ====================
     function simulateReactivationOTP() {
       const otp = "784392";
-
       const menu = document.getElementById('ussdMenu');
       menu.innerHTML = `
         <div class="bg-zinc-800 p-6 rounded-2xl mb-6 text-center">
@@ -242,7 +232,6 @@
     }
 
     // ==================== OTHER FUNCTIONS ====================
-
     function showAccountStatusScreen() {
       const menu = document.getElementById('ussdMenu');
       menu.innerHTML = `
