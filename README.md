@@ -12,9 +12,10 @@ Banks in Zambia currently face the challenge of manually contacting hundreds or 
 
 This demo demonstrates how Unzima Technologies solves this pain point with:
 - Automated SMS notifications
-- A user-friendly USSD menu (*456#)
+- A realistic multi-step USSD menu (*456#)
 - Mobile Money deposit integration (MTN MoMo & Airtel Money)
-- Self-service account management (reactivation and deactivation)
+- Secure OTP verification for account reactivation
+- Self-service account deactivation
 
 **Goal**: Faster account reactivation, significant reduction in operational costs, and improved customer convenience.
 
@@ -35,7 +36,7 @@ This demo demonstrates how Unzima Technologies solves this pain point with:
 - Send individual SMS to specific accounts
 
 ### Customer Experience Simulator
-- Realistic SMS notification preview with exact wording
+- Realistic SMS notification preview
 - Full interactive **USSD menu (*456#)** with the following options:
 
   1. **Check Account Status**  
@@ -43,7 +44,13 @@ This demo demonstrates how Unzima Technologies solves this pain point with:
      - 1. Inactive
      - 2. Dormant
 
-  2. **Reactivate Account** (Recommended)
+  2. **Reactivate Account** (Recommended)  
+     → **Multi-step secure flow**:
+     - System sends a simulated 6-digit OTP
+     - User enters the OTP code
+     - Upon successful verification, user receives a final confirmation SMS:
+       > ✅ Success  
+       > Dear Customer, your Stanbic Bank account ending ****4821 has been successfully reactivated.
 
   3. **Deposit via Mobile Money**  
      → Shows sub-options:
@@ -52,9 +59,8 @@ This demo demonstrates how Unzima Technologies solves this pain point with:
 
   4. **Deactivate Account**
 
-- Simulated Mobile Money deposit flow with provider selection
 - Clean, professional Stanbic Bank branding
-- Fully responsive design (works great on mobile)
+- Fully responsive design (works great on mobile devices)
 
 ---
 
@@ -70,7 +76,7 @@ The production version will include:
 - Real SMS gateway integration
 - Dedicated USSD short code
 - MTN MoMo & Airtel Money API integration
-- Secure backend (Next.js / Node.js)
+- Secure backend with real OTP generation and validation
 - Core banking system integration
 - Full security and compliance features
 
@@ -98,8 +104,8 @@ This demo is protected under the **Unzima Technologies End User License Agreemen
 
 | Phase              | Features                                           | Estimated Timeline |
 |--------------------|----------------------------------------------------|--------------------|
-| Demo (Current)     | Interactive prototype with enhanced USSD flow      | Completed          |
-| MVP                | Real SMS + USSD + Mobile Money integration         | 4–6 weeks          |
+| Demo (Current)     | Interactive prototype with enhanced multi-step USSD flow | Completed          |
+| MVP                | Real SMS + USSD + OTP + Mobile Money integration   | 4–6 weeks          |
 | Integration        | Core banking system + security & compliance        | 2–3 weeks          |
 | Go-Live            | Full deployment, training & monitoring             | 1–2 weeks          |
 
@@ -107,7 +113,7 @@ This demo is protected under the **Unzima Technologies End User License Agreemen
 
 ## 👥 About Unzima Technologies
 
-Unzima Technologies is a Zambian technology company specializing in innovative fintech and digital solutions for banks, financial and educational institutions.
+Unzima Technologies is a Zambian technology company specializing in innovative fintech and digital solutions for banks and financial institutions.
 
 We build practical, scalable systems that solve real business challenges in the Zambian market — including USSD platforms, mobile money integrations, and automated banking workflows.
 
@@ -121,7 +127,7 @@ We build practical, scalable systems that solve real business challenges in the 
 ## ⚠️ Important Notice
 
 This is a **demonstration only**.  
-All data, SMS messages, USSD flows, account statuses, and transactions shown are **simulated** for presentation purposes.
+All data, SMS messages, USSD flows, OTP codes, and transactions shown are **simulated** for presentation purposes.
 
 For a customized live demo, detailed proposal, or full production implementation, please contact Unzima Technologies.
 
